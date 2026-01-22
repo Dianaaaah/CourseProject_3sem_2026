@@ -39,9 +39,15 @@ mysqli_stmt_bind_param($stmt, "iisssiisss", $user_id, $park_id, $day_of_week, $t
                       $dogs_count, $aggressive_dogs, $children_present, $activity_level, $cleanliness, $convenience);
 
 if (mysqli_stmt_execute($stmt)) {
-    echo json_encode(array('success' => true, 'message' => 'Отзыв успешно сохранен'));
+    $new_id = mysqli_insert_id($mysql);
+    
+    echo json_encode(array(
+        'success' => true, 
+        'message' => 'Отзыв успешно сохранен',
+        'review_id' => $new_id
+    ));
 } else {
-    echo json_encode(array('success' => false, 'message' => 'Ошибка при сохранении отзыва'));
+    echo json_encode(array('success' => false, 'message' => 'Ошибка при сохранении отзыва: ' . mysqli_error($mysql)));
 }
 
 mysqli_stmt_close($stmt);
