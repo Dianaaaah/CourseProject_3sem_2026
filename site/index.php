@@ -19,7 +19,7 @@ include "db.php";
             </p>
         </div>
     </div>
-
+    
     <section class="map-section" id="map-section">
         <h2>Выберите площадку на карте</h2>
         
@@ -39,27 +39,38 @@ include "db.php";
         </div>
     </section>
 
-    <section>
-        <h2>О сайте</h2>
-        <p>
+    <section id="about" class="about-section">
+        <h2 class="section-title">О сайте</h2>
+        <p class="section-text">
             Этот сайт создан для удобства владельцев собак в Москве. Мы собираем информацию о площадках 
             для выгула собак из открытых данных города Москвы и позволяем пользователям делиться 
             своим опытом посещения этих площадок.
         </p>
-        <p>
+        <p class="section-text">
             Вы можете узнать о загруженности площадок в разное время, чистоте, наличии агрессивных собак 
-            и других важных факторах, которые помогут выбрать лучшее место для прогулки с вашим питомцем.
+            и других важных факторах, которые помогут выбрать лучшее место и время для прогулки с вашим питомцем.
         </p>
     </section>
-
-    <section>
-        <h2>Контакты</h2>
-        <p>
+>
+    <section id="contacts" class="contacts-section">
+        <h2 class="section-title">Контакты</h2>
+        <p class="section-text">
             Если у вас есть вопросы или предложения, свяжитесь с нами по email: 
-            <a href="mailto:info@dogparks.ru" style="color: #c9a882;">info@dogparks.ru</a>
+            <a href="mailto:info@dogparks.ru" class="link-accent">info@dogparks.ru</a>
         </p>
     </section>
 </main>
 
 <?php include "footer.php"; ?>
 
+<script>
+//загружаем данные о площадках для карты
+document.addEventListener('DOMContentLoaded', function() {
+    fetch('api/get_parks.php')
+        .then(response => response.json())
+        .then(data => {
+            window.parksData = data;
+        })
+        .catch(error => console.error('Ошибка загрузки данных:', error));
+});
+</script>
