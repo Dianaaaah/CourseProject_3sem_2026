@@ -90,7 +90,7 @@ function loadHeatmap() {
 // ========== ОТОБРАЖЕНИЕ ТЕПЛОВОЙ КАРТЫ ==========
 function renderHeatmap(container, heatmapData, parameter, data) {
     const days = ['Пн','Вт','Ср','Чт','Пт','Сб','Вс'];
-    const times = ['6-8','8-10','10-12','12-14','14-16','16-18','18-20','20-22'];
+        const times = ['6-8','8-10','10-12','12-14','14-16','16-18','18-20','20-22','22-6'];
     
     let html = `
         <div class="heatmap-wrapper">
@@ -428,6 +428,7 @@ function initReviewForm() {
         });
     });
 }
+
 
 
 window.loadHeatmap = loadHeatmap;
