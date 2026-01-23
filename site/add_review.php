@@ -47,6 +47,8 @@ if ($park_id === 0) {
                     <option value="16-18">16:00 – 18:00</option>
                     <option value="18-20">18:00 – 20:00</option>
                     <option value="20-22">20:00 – 22:00</option>
+                    <option value="22-6">22:00 – 06:00</option>
+                </select>
                 </select>
             </div>
 
@@ -117,3 +119,4 @@ if ($park_id === 0) {
 </main>
 
 <?php include "footer.php"; ?>
+
